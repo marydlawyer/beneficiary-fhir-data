@@ -53,13 +53,13 @@ git clone git@github.com:CMSgov/beneficiary-fhir-data.git ~/workspaces/bfd/benef
 
 Requirements: Docker 
 
-Caution: Setting up your local environments requires git patches to run. Please make sure you `make unservable` and `make unloadadable` before you commit your changes to revert these patches. 
+Caution: Setting up your local environments requires git patches to run. Please make sure you `make unservable` and `make unloadable` before you commit your changes to revert these patches. 
 
 Let's begin!
 
 The instructions from here on should be run from the `contributing` directory located at /
 
-To simply run tests or execute other tasks in the BFD bring up the docker containers.
+To simply run tests or execute other tasks in the BFD, bring up the Docker containers.
 Note: As a prerequisite, the bfd Docker environments need a few variables to be set in a file named .env placed within the /contributing directory.
 
 - `BFD_DIR` specifies the directory on your host machine where you have cloned https://github.com/CMSgov/beneficiary-fhir-data
@@ -71,6 +71,8 @@ Here's an example `.env` file that docker-compose could use:
 BFD_DIR=../../beneficiary-fhir-data
 SYNTHETIC_DATA=../../synthetic-data
 ```
+
+After creating your `.env` file, run:
 
 ```
 make up
@@ -88,7 +90,7 @@ mvn verify
 
 ### Serving the BFD
 
-To run the BFD locally in a way that will allow you and other systems to interact with it some modifications need to be made so that it serves on a consistent port. Caution: Since this changes the code in the repository (server-start.sh) please keep in mind not to commit these changes.
+To run the BFD locally in a way that will allow you and other systems to interact with it, some modifications need to be made so that it serves on a consistent port. Caution: Since this changes the code in the repository (server-start.sh) please keep in mind not to commit these changes.
 
 These changes are contained in the file `contributing/patches/allow_local_port_config.patch` and can be applied with 
 
@@ -98,7 +100,7 @@ make servable
 To undo the changes run `make unservable`.
 
 Once the changes are applied the server needs to be started in order for them to take effect.
-Run `make up` if no docker containers are running or
+Run `make up` if no Docker containers are running or
 
 ```
 make restart
