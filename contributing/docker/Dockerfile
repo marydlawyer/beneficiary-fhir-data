@@ -8,6 +8,7 @@ RUN curl -O http://mirrors.advancedhosters.com/apache/maven/maven-3/${MVN_VER}/b
 RUN tar xvf apache-maven-${MVN_VER}-bin.tar.gz
 RUN mv apache-maven-${MVN_VER} /opt/maven
 ENV LANG en_US.UTF-8
+ENV BFD_V2_ENABLED true
 RUN useradd -ms /bin/bash dev
 USER dev
 ENV MAVEN_HOME /opt/maven
