@@ -5,7 +5,7 @@ export BFD_PORT='{{ data_server_appserver_https_port }}'
 export BFD_KEYSTORE='{{ data_server_dir }}/bluebutton-appserver-keystore.jks'
 export BFD_TRUSTSTORE='{{ data_server_dir }}/bluebutton-appserver-truststore.jks'
 export BFD_WAR='{{ data_server_dir }}/{{ data_server_war | basename }}'
-export V2_ENABLED='{{ data_server_v2_enabled }}'
+export BFD_V2_ENABLED='{{ data_server_v2_enabled }}'
 
 # The WAR picks up its config from Java system properties, so set some variables we can use for
 # those.
@@ -14,7 +14,6 @@ DB_URL='{{ data_server_db_url }}'
 DB_USERNAME='{{ data_server_db_username }}'
 DB_PASSWORD='{{ data_server_db_password }}'
 DB_CONNECTIONS_MAX='{{ data_server_db_connections_max }}'
-BFD_V2_ENABLED='{{ data_server_v2_enabled }}'
 
 # The New Relic agent running in the WAR needs some additional environment variables, so set those.
 {% if data_server_new_relic_license_key is defined %}
